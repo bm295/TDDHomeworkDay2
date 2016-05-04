@@ -13,6 +13,7 @@ namespace BookStore.Tests
         public void InitTest()
         {
             _Bookstore = new BookStore();
+            _BookCart = new List<Book>();
         }
 
         [TestMethod()]
