@@ -2,7 +2,7 @@
 {
     public class BookStore
     {
-        public int CalculatePrice()
+        public int CalculatePrice(int numberOfBook)
         {
             return 0;
         }

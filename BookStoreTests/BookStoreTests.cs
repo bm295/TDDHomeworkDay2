@@ -6,12 +6,13 @@ namespace BookStore.Tests
     public class BookStoreTests
     {
         [TestMethod()]
-        public void CalculatePriceTest()
+        public void CalculatePriceTest_Buy1Book_PriceShouldBe100()
         {
             var bookstore = new BookStore();
-            var expected = 0;
+            var expected = 100;
+            var numberOfBook = 1;
 
-            var actual = bookstore.CalculatePrice();
+            var actual = bookstore.CalculatePrice(numberOfBook);
             Assert.AreEqual(expected, actual);
         }
     }
