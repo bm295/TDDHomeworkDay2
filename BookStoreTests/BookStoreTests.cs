@@ -158,5 +158,23 @@ namespace BookStore.Tests
             var expected = 320;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void CalculatePriceTest_Buy_5_Different_Books_Should_25Percent_Discount()
+        {
+            _BookCart = new List<Book>
+            {
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 2, Price = 100},
+                new Book {Id = 3, Price = 100},
+                new Book {Id = 4, Price = 100},
+                new Book {Id = 5, Price = 100}
+            };
+
+            var actual = _Bookstore.CalculatePrice(_BookCart);
+
+            var expected = 375;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
