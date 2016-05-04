@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BookStoreTests
+namespace BookStore.Tests
 {
     [TestClass()]
     public class BookStoreTests
@@ -8,7 +8,11 @@ namespace BookStoreTests
         [TestMethod()]
         public void CalculatePriceTest()
         {
-            Assert.Fail();
+            var bookstore = new BookStore();
+            var expected = 0;
+
+            var actual = bookstore.CalculatePrice();
+            Assert.AreEqual(expected, actual);
         }
     }
 }
