@@ -23,6 +23,11 @@ namespace BookStore
                 return (int) (distinctBooks.Count * bookPrice * 0.95 + normalBookCount * bookPrice);
             }
 
+            if (distinctBooks.Count == 3)
+            {
+                return (int) (distinctBooks.Count * bookPrice * 0.9 + normalBookCount * bookPrice);
+            }
+
             return 0;
         }
     }
