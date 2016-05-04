@@ -91,5 +91,21 @@ namespace BookStore.Tests
             var expected = 290;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void CalculatePriceTest_Buy_Book1_Book2_Book3_PriceShould_270()
+        {
+            _BookCart = new List<Book>
+            {
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 2, Price = 100},
+                new Book {Id = 3, Price = 100}
+            };
+
+            var actual = _Bookstore.CalculatePrice(_BookCart);
+
+            var expected = 270;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
