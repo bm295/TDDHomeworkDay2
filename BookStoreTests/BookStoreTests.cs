@@ -21,7 +21,7 @@ namespace BookStore.Tests
         {
             _BookCart = new List<Book>
             {
-                new Book {Id = 1}
+                new Book {Id = 1, Price = 100}
             };
 
             var actual = _Bookstore.CalculatePrice(_BookCart);
@@ -35,8 +35,8 @@ namespace BookStore.Tests
         {
             _BookCart = new List<Book>
             {
-                new Book {Id = 1},
-                new Book {Id = 2}
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 2, Price = 100}
             };
 
             var actual = _Bookstore.CalculatePrice(_BookCart);
@@ -50,9 +50,9 @@ namespace BookStore.Tests
         {
             _BookCart = new List<Book>
             {
-                new Book {Id = 1},
-                new Book {Id = 1},
-                new Book {Id = 2}
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 2, Price = 100}
             };
 
             var actual = _Bookstore.CalculatePrice(_BookCart);
