@@ -93,7 +93,7 @@ namespace BookStore.Tests
         }
 
         [TestMethod]
-        public void CalculatePriceTest_Buy_Book1_Book2_Book3_PriceShould_270()
+        public void CalculatePriceTest_Buy_Book1_Book2_Book3_Should_10Percent_Discount()
         {
             _BookCart = new List<Book>
             {
@@ -105,6 +105,57 @@ namespace BookStore.Tests
             var actual = _Bookstore.CalculatePrice(_BookCart);
 
             var expected = 270;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CalculatePriceTest_Buy_4_Book1_PriceShould_400()
+        {
+            _BookCart = new List<Book>
+            {
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 1, Price = 100}
+            };
+
+            var actual = _Bookstore.CalculatePrice(_BookCart);
+
+            var expected = 400;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CalculatePriceTest_Buy_1_Book1_And_Book1_Book2_Book3_PriceShould_370()
+        {
+            _BookCart = new List<Book>
+            {
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 2, Price = 100},
+                new Book {Id = 3, Price = 100}
+            };
+
+            var actual = _Bookstore.CalculatePrice(_BookCart);
+
+            var expected = 370;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CalculatePriceTest_Buy_4_Different_Books_Should_20Percent_Discount()
+        {
+            _BookCart = new List<Book>
+            {
+                new Book {Id = 1, Price = 100},
+                new Book {Id = 2, Price = 100},
+                new Book {Id = 3, Price = 100},
+                new Book {Id = 4, Price = 100}
+            };
+
+            var actual = _Bookstore.CalculatePrice(_BookCart);
+
+            var expected = 320;
             Assert.AreEqual(expected, actual);
         }
     }
