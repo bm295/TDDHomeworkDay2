@@ -1,10 +1,12 @@
-﻿namespace BookStore
+﻿using System.Collections.Generic;
+
+namespace BookStore
 {
     public class BookStore
     {
-        public int CalculatePrice(int numberOfBook)
+        public int CalculatePrice(List<Book> bookCart)
         {
-            if (numberOfBook == 1) return 100;
+            if (bookCart.Count == 1) return 100;
 
             return 0;
         }
