@@ -1,5 +1,0 @@
-D:\BookStore\BookStore\bin\Debug\BookStore.dll
-D:\BookStore\BookStore\bin\Debug\BookStore.pdb
-D:\BookStore\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
-D:\BookStore\BookStore\obj\Debug\BookStore.dll
-D:\BookStore\BookStore\obj\Debug\BookStore.pdb

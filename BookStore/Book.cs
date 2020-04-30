@@ -1,4 +1,6 @@
-﻿namespace BookStore
+﻿using System;
+
+namespace BookStore
 {
     public class Book
     {

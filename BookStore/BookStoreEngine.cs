@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace BookStore
 {
-    public class BookStore
+    public class BookStoreEngine
     {
         public int CalculatePrice(List<Book> bookCart)
         {
@@ -20,17 +22,17 @@ namespace BookStore
 
             if (distinctBooks.Count == 2)
             {
-                return (int) (distinctBooks.Count * bookPrice * 0.95 + normalBookCount * bookPrice);
+                return (int)(distinctBooks.Count * bookPrice * 0.95 + normalBookCount * bookPrice);
             }
 
             if (distinctBooks.Count == 3)
             {
-                return (int) (distinctBooks.Count * bookPrice * 0.9 + normalBookCount * bookPrice);
+                return (int)(distinctBooks.Count * bookPrice * 0.9 + normalBookCount * bookPrice);
             }
 
             if (distinctBooks.Count == 4)
             {
-                return (int) (distinctBooks.Count * bookPrice * 0.8 + normalBookCount * bookPrice);
+                return (int)(distinctBooks.Count * bookPrice * 0.8 + normalBookCount * bookPrice);
             }
 
             if (distinctBooks.Count == 5)
