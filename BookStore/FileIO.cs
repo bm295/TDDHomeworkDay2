@@ -9,6 +9,11 @@ namespace BookStore
     {
         public string ReadSpecificLine(string filePath, int lineNumber)
         {
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                throw new Exception("Invalid File Path");
+            }
+
             using (StreamReader file = new StreamReader(filePath))
             {
                 string content = null;
