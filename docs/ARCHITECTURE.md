@@ -60,3 +60,10 @@ External concerns:
 
 - **Risk:** File format instability.  
   **Mitigation:** Versioned schema for persisted records.
+
+## 7) Companion Documents
+- Use `USE_CASES.md` for application-level boundaries and command/query definitions.
+- Use `PRICING_SPEC.md` for canonical pricing behavior.
+- Use `PERSISTENCE_SCHEMA.md` for file layout and JSON contracts.
+- Use `ERROR_MODEL.md` for exception taxonomy.
+- Use `ADR/` for stable architecture decisions.

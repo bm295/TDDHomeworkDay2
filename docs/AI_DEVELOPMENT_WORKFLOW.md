@@ -3,26 +3,38 @@
 ## Goal
 Enable fast, reliable, prompt-driven development while preserving software quality through TDD and documentation discipline.
 
-## 1) Workflow Loop (per feature)
-1. Select one item from `docs/BACKLOG.md`.
-2. Convert it into explicit acceptance criteria.
-3. Ask AI to write/extend failing tests first.
-4. Ask AI to implement minimal code to pass tests.
-5. Refactor with behavior preserved.
-6. Update docs and backlog status.
+## 1) Workflow Loop (per slice)
+1. Select one ready slice from `docs/BACKLOG.md`.
+2. Expand it with `docs/SLICE_DEFINITIONS.md`.
+3. Read the relevant contract docs before coding:
+   - `docs/USE_CASES.md`
+   - `docs/ERROR_MODEL.md`
+   - `docs/PRICING_SPEC.md`
+   - `docs/PERSISTENCE_SCHEMA.md`
+4. Ask AI to write or extend failing tests first.
+5. Ask AI to implement the minimal production code to pass those tests.
+6. Refactor with behavior preserved.
+7. Update docs and backlog status.
 
 ## 2) Prompt Templates
 
 ## A) Feature Implementation Prompt
-"Implement `<feature>` in the BookStore solution using TDD.
+"Implement slice `<slice id>` in the BookStore solution using TDD.
 First add tests in `BookStoreTests/` that fail.
 Then implement the minimal production changes in `BookStore/`.
 Acceptance criteria:
 - `<criterion 1>`
 - `<criterion 2>`
+Required tests:
+- `<happy path>`
+- `<edge case>`
+- `<validation or error case>`
 Constraints:
 - Keep API backward compatible where possible.
 - Avoid unrelated refactors.
+- Touch only the expected modules unless the tests force a small extension.
+Non-goals:
+- `<explicit non-goal>`
 Update docs if behavior changes."
 
 ## B) Refactor Prompt
@@ -42,6 +54,7 @@ Explain root cause and prevention strategy."
 - Compiles successfully.
 - Relevant tests pass.
 - New behavior is test-covered.
+- Slice dependencies were already complete before coding started.
 - No dead/commented-out code introduced.
 - Docs updated when architecture or behavior changes.
 
@@ -51,6 +64,7 @@ Explain root cause and prevention strategy."
 - Is naming domain-meaningful?
 - Are exceptions specific and actionable?
 - Is scope appropriately small?
+- Does the change match the active contract docs?
 
 ## 5) Branch & Commit Convention
 - Branch examples:
@@ -65,5 +79,6 @@ Explain root cause and prevention strategy."
 ## 6) Anti-Patterns to Avoid
 - Large multi-feature prompts in one change.
 - Implementing code before writing tests.
-- Letting AI perform broad “cleanup” unrelated to the task.
+- Letting AI perform broad "cleanup" unrelated to the task.
 - Accepting generated code without domain validation.
+- Starting a slice before its dependencies are complete.
